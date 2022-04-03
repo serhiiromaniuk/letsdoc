@@ -1,0 +1,35 @@
+{
+  "dependencies": {
+    "@emotion/react": "11.8.2",
+    "@emotion/styled": "11.8.1",
+    "@mui/material": "5.5.3",
+    "@types/react": "17.0.43",
+    "@types/react-dom": "17.0.14",
+    "js-base64": "^3.7.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "typescript": "4.6.3"
+  },
+  "description": "https://github.com/mui/material-ui/blob/v5.5.2/docs/data/material/components/text-fields/MultilineTextFields.tsx",
+  "devDependencies": {
+    "react-scripts": "5.0.0"
+  },
+  "main": "src/index.tsx",
+  "name": "page",
+  "scripts": {
+    "start": "react-scripts start src/"
+  },
+  "title": "MultilineTextFields Material Demo",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
