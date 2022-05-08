@@ -1,23 +1,33 @@
 {
   "name": "letsdoc",
-  "version": "1.0.0",
-  "description": "Let's Doc",
+  "version": "0.0.1",
   "main": "index.js",
+  "repository": "git@github.com:serhiiromaniuk/letsdoc.git",
+  "author": "Serhii Romaniuk <serhii.romaniuk.here@gmail.com>",
+  "description": "LETSDOC demo project",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "help": "echo \"=> Install NVM for avoid version inconsitencies, current version $(node --version)\"",
+    "clean": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' + && find . -name 'dist' -type d -prune -exec rm -rf '{}' +",
+    "bootstrap": "npm run help && npm run clean && npm ci && lerna bootstrap",
+    "build": "lerna run build && lerna link",
+    "start:client": "lerna run start --scope @letsdoc/client",
+    "start:server": "lerna run start --scope @letsdoc/server",
+    "start:db": "lerna run db:up --scope @letsdoc/database",
+    "start:db:migrate": "lerna run db:migrate:up --scope @letsdoc/database"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/serhiiromaniuk/letsdoc.git"
-  },
-  "author": "serhii.romaniuk.here@gmail.com",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/serhiiromaniuk/letsdoc/issues"
-  },
-  "homepage": "https://github.com/serhiiromaniuk/letsdoc#readme",
   "dependencies": {
+    "@mui/icons-material": "^5.0.4",
+    "@testing-library/dom": ">=7.21.4",
     "aws-sdk": "^2.1106.0",
     "uuid": "^8.3.2"
-  }
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0",
+    "yarn": "^1.22.18"
+  },
+  "private": true,
+  "workspaces": [
+    "packages/@letsdoc/*"
+  ]
 }

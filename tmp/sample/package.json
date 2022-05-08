@@ -1,0 +1,23 @@
+{
+  "name": "letsdoc",
+  "version": "1.0.0",
+  "description": "Let's Doc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serhiiromaniuk/letsdoc.git"
+  },
+  "author": "serhii.romaniuk.here@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/serhiiromaniuk/letsdoc/issues"
+  },
+  "homepage": "https://github.com/serhiiromaniuk/letsdoc#readme",
+  "dependencies": {
+    "aws-sdk": "^2.1106.0",
+    "uuid": "^8.3.2"
+  }
+}
