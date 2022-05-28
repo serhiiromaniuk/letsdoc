@@ -6,8 +6,8 @@ const styling = {
     position: 'absolute',
     width: '270.7px',
     height: '80px',
-    left: '74px',
-    top: '10px'
+    left: '4%',
+    top: '6%'
 }
 
 export function LogoHeader() {
