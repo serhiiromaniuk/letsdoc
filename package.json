@@ -8,8 +8,8 @@
   "license": "MIT",
   "scripts": {
     "help": "echo \"=> Install NVM for avoid version inconsitencies, current version $(node --version)\"",
-    "clean": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' + && find . -name 'dist' -type d -prune -exec rm -rf '{}' +",
-    "bootstrap": "npm run help && npm run clean && npm ci && lerna bootstrap",
+    "clean": "find . -regex 'node_modules|dist' -type d -prune -exec rm -rf '{}' +",
+    "bootstrap": "npm run help && npm run clean && npm i && lerna bootstrap",
     "build": "lerna run build && lerna link",
     "start:client": "lerna run start --scope @letsdoc/client",
     "start:server": "lerna run start --scope @letsdoc/server",
@@ -20,9 +20,7 @@
     "@mui/icons-material": "^5.0.4",
     "@testing-library/dom": ">=7.21.4",
     "aws-sdk": "^2.1106.0",
-    "uuid": "^8.3.2"
-  },
-  "devDependencies": {
+    "uuid": "^8.3.2",
     "lerna": "^4.0.0",
     "yarn": "^1.22.18"
   },
