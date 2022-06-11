@@ -1,7 +1,9 @@
+import { Footer } from '../../../Footer'
+
 export function BotPart() {
     return (
         <div>
-            123
+            <Footer/>
         </div>
     )
 }
