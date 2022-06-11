@@ -1,3 +1,2 @@
-export * from './Icons'
-export * from './Paragraph'
-export * from './Image'
+export * from './Styled'
+export * from './Func'

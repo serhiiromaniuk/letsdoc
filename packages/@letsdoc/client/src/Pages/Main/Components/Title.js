@@ -28,7 +28,6 @@ const titleStyle = {
 
 const textStyle = {
     ...defaults,
-    top: '310px',
     fontWeight: 800,
     fontSize: '50px',
     lineHeight: '68px',
