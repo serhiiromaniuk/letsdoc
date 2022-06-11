@@ -1,19 +1,27 @@
 import * as React from 'react'
-import { BrowserRouter as Router, useRoutes } from 'react-router-dom'
-import { MainPage } from './Pages'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { 
+    MainPage, Login,
+} from './Pages'
 
 export default function App() {
-    const AppWrapper = () => {
-        return useRoutes([
-            { path: "/", element: <MainPage/> }
-        ])
-    }
-
     return (
         <div>
-            <Router>
-                <AppWrapper/>
-            </Router>
+          <Router>
+            <Routes>
+              {
+                // Main Pages 
+              }
+              <Route exact path='/' element={<MainPage/>}/>
+                
+
+              {
+                // Auth Pages 
+              }
+              <Route exact path='/login' element={<Login/>}/>
+  
+            </Routes>
+          </Router>
         </div>
-    )
+      )
 }

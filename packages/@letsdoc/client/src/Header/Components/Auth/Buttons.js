@@ -1,12 +1,16 @@
 import * as React from 'react'
 import { BootstrapSignUp, BootstrapLogIn, BootstrapStack } from './style'
+import { NavLink } from 'react-router-dom'
 
 function SignUpButton() {
     return (
         <div>
-            <BootstrapSignUp variant='text'>
-            SIGN UP
-            </BootstrapSignUp>
+            <NavLink to='/register' style={{textDecoration: 'none'}}>
+                <BootstrapSignUp variant='text'>
+                SIGN UP
+                </BootstrapSignUp>
+
+            </NavLink>
         </div>
     )
 }
@@ -14,9 +18,11 @@ function SignUpButton() {
 function LogInButton() {
     return (
         <div>
-            <BootstrapLogIn variant='text'>
-            LOG IN
-            </BootstrapLogIn>
+            <NavLink to='/login' style={{textDecoration: 'none'}}>
+                <BootstrapLogIn variant='text'>
+                LOG IN
+                </BootstrapLogIn>
+            </NavLink>
         </div>
     )
 }

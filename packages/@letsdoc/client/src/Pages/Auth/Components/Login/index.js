@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import { withStyles } from "@material-ui/core/styles";
-import { LoginStyles } from "./styles";
+import { api, opt, makeLogin } from '../../../../Components'
+import { NavLink } from "react-router-dom"
 import InputAdornment from "@material-ui/core/InputAdornment";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Paper from "@material-ui/core/Paper";
 import Avatar from "@material-ui/core/Avatar";
-import { FormControl, Input, InputLabel, Button } from "@material-ui/core";
 import PeopleAltIcon from "@material-ui/icons/PeopleAlt";
 import Snackbar from "@material-ui/core/Snackbar";
 import SnackbarContent from "@material-ui/core/SnackbarContent";
@@ -15,15 +14,14 @@ import VisibilityTwoToneIcon from "@material-ui/icons/VisibilityTwoTone";
 import VisibilityOffTwoToneIcon from "@material-ui/icons/VisibilityOffTwoTone";
 import CloseIcon from "@material-ui/icons/Close";
 import axios from 'axios';
+import { Header } from '../../../../Header'
+import { FormControl, Input, InputLabel, Button } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+import { LoginStyles } from "./styles";
 
-import { api, opt, makeLogin } from '../../../Utils'
-import { CustomParagraph } from '../../../Styles';
-import { NavLink } from "react-router-dom";
-import AppPannel from '../../../AppPannel';
-
-class Login extends Component {
+class LoginItem extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     
     this.state = {
       email: "",
@@ -33,65 +31,65 @@ class Login extends Component {
       hidePasswordConfirm: true,
       error: null,
       errorOpen: false
-    };
-    // this.delta = this.delta.bind(this);
-    this.submitLogin = this.submitLogin.bind(this);
+    }
+    // this.delta = this.delta.bind(this)
+    this.submitLogin = this.submitLogin.bind(this)
   }
 
 
   errorClose = e => {
     this.setState({
       errorOpen: false
-    });
-  };
+    })
+  }
 
   handleChange = name => e => {
     this.setState({
       [name]: e.target.value
-    });
-  };
+    })
+  }
 
-  passwordMatch = () => this.state.password === this.state.passwordConfrim;
+  passwordMatch = () => this.state.password === this.state.passwordConfrim
 
   showPassword = () => {
-    this.setState(prevState => ({ hidePassword: !prevState.hidePassword }));
-  };
+    this.setState(prevState => ({ hidePassword: !prevState.hidePassword }))
+  }
 
   showPasswordConfirm = () => {
-    this.setState(prevState => ({ hidePasswordConfirm: !prevState.hidePasswordConfirm }));
-  };
+    this.setState(prevState => ({ hidePasswordConfirm: !prevState.hidePasswordConfirm }))
+  }
 
   isValid = () => {
     if (this.state.email === "" || this.state.password === "" || this.state.passwordConfrim === "") {
-      return false;
+      return false
     }
-    return true;
-  };
+    return true
+  }
 
   isValidRegister = () => {
-    return true;
-  };
+    return true
+  }
 
   submitLogin = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (!this.passwordMatch()) {
       this.setState({
         errorOpen: true,
-        error: "Password are not equal"
-      });
+        error: "Passwords are not equal"
+      })
     } else {
       if (this.state.password.length <= 6) {
         this.setState({
           errorOpen: true,
           error: "Incorrect password"
-        });
+        })
       } else {
-        const url = api.post.auth.user.login;
+        const url = api.post.auth.user.login
         const data = {
             email:    this.state.email,
             password: this.state.password
-        };
-        let externalState = this;
+        }
+        let externalState = this
     
         axios.post(url, data, opt)
           .then(
@@ -104,20 +102,20 @@ class Login extends Component {
                 externalState.setState({
                   errorOpen: true,
                   error: err.response.data.failed
-                });
+                })
               }
             }
-          );
+          )
       }
     }
 
-  };
+  }
 
   render() {
-    const { classes } = this.props;
+    const { classes } = this.props
     return (
       <>
-        <AppPannel/>
+      <Header/>
       <div className={classes.main}>
         <CssBaseline />
 
@@ -131,7 +129,7 @@ class Login extends Component {
             onSubmit={() => this.submitLogin}
           >
             <div className={classes.text}>
-              <p>Login into Service App</p>
+              <p>Let's login into system!</p>
             </div>
             <FormControl required fullWidth margin="normal">
               <InputLabel htmlFor="email" className={classes.labels}>
@@ -225,7 +223,7 @@ class Login extends Component {
               Login
             </Button>
 
-            <NavLink to='/register'>
+            <NavLink to='/register' style={{textDecoration: 'none'}}>
               <Button
               // disabled={!this.isValidRegister()}
               disableRipple
@@ -277,8 +275,8 @@ class Login extends Component {
         </Paper>
       </div>
       </>
-    );
+    )
   }
 }
 
-export default withStyles(LoginStyles)(Login);
+export const Login = withStyles(LoginStyles)(LoginItem)

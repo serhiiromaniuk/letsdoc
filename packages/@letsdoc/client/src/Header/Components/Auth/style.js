@@ -1,6 +1,6 @@
-import { styled } from '@mui/material/styles'
-import Button from '@mui/material/Button'
-import Stack from '@mui/material/Stack'
+import { styled } from '@material-ui/core/styles'
+import { Stack } from '@mui/material'
+import { Button} from '@material-ui/core'
 
 export const BootstrapStack = styled(Stack)({
     position: 'absolute',
