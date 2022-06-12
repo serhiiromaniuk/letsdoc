@@ -108,7 +108,6 @@ class LoginItem extends Component {
           )
       }
     }
-
   }
 
   render() {

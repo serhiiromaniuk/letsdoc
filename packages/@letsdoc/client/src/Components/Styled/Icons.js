@@ -25,7 +25,7 @@ export function SearchIcon(props) {
                 color: 'white',
                 minWidth: '50px',
                 padding: '0px'
-            }}>
+            }} onClick={props.onClick}>
                 <img src='/images/search_button.svg' width='50px' position='center' alt='search-icon'/>
             </Button>
         </div>

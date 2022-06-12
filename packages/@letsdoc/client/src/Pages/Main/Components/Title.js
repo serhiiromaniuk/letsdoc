@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { SearchIcon } from '../../../Components'
+import { NavLink } from 'react-router-dom'
 
 const defaults = {
     position: 'absolute',
@@ -44,6 +45,8 @@ const iconDefaults = {
     top: '79.5%',
 }
 
+
+
 export default function Title() {
     return (
         <div>
@@ -54,7 +57,10 @@ export default function Title() {
             <p style={textStyle}>
                 Sign Up for free
             </p>
-            <SearchIcon style={iconDefaults}/>
+            <NavLink to='/register' style={{textDecoration: 'none'}}>
+                <SearchIcon style={iconDefaults} />
+
+            </NavLink>
         </div>
     )
 }
