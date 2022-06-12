@@ -139,7 +139,7 @@ class RegisterItem extends Component {
             onSubmit={() => this.submitRegister}
           >
             <div className={classes.text}>
-              <p>Service App Sign Up</p>
+              <p>Let's register in app!</p>
             </div>
             <FormControl required fullWidth margin="normal">
               <InputLabel htmlFor="email" className={classes.labels}>
