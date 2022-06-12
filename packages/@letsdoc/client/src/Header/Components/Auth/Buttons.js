@@ -1,16 +1,26 @@
 import * as React from 'react'
 import { BootstrapSignUp, BootstrapLogIn, BootstrapStack } from './style'
 import { NavLink } from 'react-router-dom'
+import { getUserData } from '../../../Components/Func'
 
 function SignUpButton() {
     return (
         <div>
-            <NavLink to='/register' style={{textDecoration: 'none'}}>
-                <BootstrapSignUp variant='text'>
-                SIGN UP
-                </BootstrapSignUp>
+            {   getUserData() && (
+                    <NavLink to='/document' style={{textDecoration: 'none'}}>
+                        <BootstrapSignUp variant='text'>
+                        MY DOCUMENT
+                        </BootstrapSignUp>
+                    </NavLink>
+                ) || (
+                    <NavLink to='/register' style={{textDecoration: 'none'}}>
+                        <BootstrapSignUp variant='text'>
+                        SIGN UP
+                        </BootstrapSignUp>
 
-            </NavLink>
+                    </NavLink>
+                )
+            }
         </div>
     )
 }
@@ -18,11 +28,20 @@ function SignUpButton() {
 function LogInButton() {
     return (
         <div>
-            <NavLink to='/login' style={{textDecoration: 'none'}}>
-                <BootstrapLogIn variant='text'>
-                LOG IN
-                </BootstrapLogIn>
-            </NavLink>
+            {   getUserData() && (
+                    <NavLink to='/profile' style={{textDecoration: 'none'}}>
+                        <BootstrapLogIn variant='text'>
+                        PROFILE
+                        </BootstrapLogIn>
+                    </NavLink>
+                ) || (
+                    <NavLink to='/login' style={{textDecoration: 'none'}}>
+                        <BootstrapLogIn variant='text'>
+                        LOG IN
+                        </BootstrapLogIn>
+                    </NavLink>
+                )
+            }
         </div>
     )
 }

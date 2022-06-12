@@ -6,7 +6,7 @@ export const BootstrapStack = styled(Stack)({
     position: 'absolute',
     width: '459px',
     height: '44px',
-    left: '1460px',
+    left: '75%',
     top: '23px'
 })
 
@@ -22,6 +22,7 @@ const defaults = {
 export const BootstrapSignUp = styled(Button)({
     ...defaults,
     backgroundColor: '#FF8282',
+    width: '250px',
     color: '#FFFFFF',
     '&:hover': {
         backgroundColor: '#2C2C2C',

@@ -15,40 +15,31 @@ export const opt = {
 export const api = {
     ping: api_url + 'ping', 
     get: {
-        block: {
-            container: {
-                id: api_url + 'block/container/get/id/',
-                owner: api_url + 'block/container/get/owner/',
-                list: api_url + 'block/container/list'
-            }
-        },
         auth: {
             user: {
                 uuid: api_url + 'auth/user/get/',
                 list: api_url + 'auth/user/list'
             },
-            role: {
-                list: api_url + 'auth/role/list'
-            },
-            org: {
-                id: api_url + 'auth/org/get/',
-                list: api_url + 'auth/org/list'
-            }
         }
     },
     post: {
-        block: {
-            container: {
-                create: api_url + 'block/container/create'
-            }
-        },
         auth: {
             user: {
                 create: api_url + 'auth/user/create',
                 login: api_url + 'auth/user/login'
-            },
-            org: {
-                create: api_url + 'auth/org/create'
+            }
+        },
+        doc: {
+            page: {
+                get: api_url + '/doc/page/get',
+                create: api_url + '/doc/page/create'
+            }
+        },
+        user: {
+            domains: {
+                get: api_url + '/user/domains/get',
+                upsert: api_url + '/user/domains/upsert',
+                delete: api_url + '/user/domains/delete',
             }
         }
     }
@@ -164,6 +155,7 @@ export function getUserData() {
 
     if (!auth_token) {
         makeReditect('/login')
+        return false
     } else {
         return auth_token
     }

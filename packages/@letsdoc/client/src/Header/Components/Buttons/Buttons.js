@@ -14,9 +14,9 @@ function StyledButton({name}) {
 export function Buttons() {
   return (
         <BootstrapStack direction='row' spacing={6}>
-            {/* <StyledButton name='SEARCH'/>
+            <StyledButton name='SEARCH'/>
             <StyledButton name='MAP'/>
-            <StyledButton name='INFO'/> */}
+            <StyledButton name='INFO'/>
         </BootstrapStack>
   )
 }
