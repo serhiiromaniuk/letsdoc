@@ -23,8 +23,8 @@ func Server() {
 		v1.POST("/auth/user/login", loginUser)
 
 		// Document pages
-		// v1.POST("/doc/page/get", docPageGet)
-		// v1.POST("/doc/page/create", docPageCreate)
+		v1.POST("/doc/page/get", docPageGet)
+		v1.POST("/doc/page/create", docPageCreate)
 
 		// User domains
 		v1.POST("/user/domains/get", userDomainsGet)
