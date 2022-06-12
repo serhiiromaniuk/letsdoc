@@ -17,29 +17,20 @@ func Server() {
 	{
 		v1.GET("/ping", ping)
 
-		// Blocks
-		v1.GET("/block/container/list", listBlockContainers)
-		v1.GET("/block/container/get/id/:id", getBlockContainerById)
-		v1.GET("/block/container/get/owner/:id", getBlockContainerByOwner)
-
-		v1.POST("/block/container/create", createBlockContainer)
-
-		// Auth Users
+		// Auth users
 		v1.GET("/auth/user/get/:id", getUserById)
-		v1.GET("/auth/user/list", listUsers)
-
 		v1.POST("/auth/user/create", createUser)
 		v1.POST("/auth/user/login", loginUser)
 
-		// Auth Orgs
-		v1.GET("/auth/org/list", listOrgs)
-		v1.GET("/auth/org/get/:id", getOrgById)
+		// Document pages
+		// v1.POST("/doc/page/get", docPageGet)
+		// v1.POST("/doc/page/create", docPageCreate)
 
-		v1.POST("/auth/org/create", createOrg)
-
-		// Auth Roles
-		v1.GET("/auth/role/list", listUserRoles)
-		// v1.POST("/auth/create/rolebinding", CreateUser("default"))
+		// User domains
+		v1.POST("/user/domains/get", userDomainsGet)
+		v1.POST("/user/domains/upsert", userDomainsUpsert)
+		v1.POST("/user/domains/delete", userDomainsDelete)
+		// v1.POST("/user/domains/get/change", userDomainsGetChange)
 	}
 
 	router.Run(host + ":" + port)

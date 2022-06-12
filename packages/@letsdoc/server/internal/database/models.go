@@ -7,7 +7,6 @@ import (
 type UserInfos struct {
 	Uuid      uuid.UUID `gorm:"primarykey;not null;size:36;" json:"uuid"`
 	UserName  string    `gorm:"not null;size:128;" json:"username" binding:"required,alphanum"`
-	OrgID	  int 		`gorm:"default:null" json:"org_id"`
 	Email     string    `gorm:"not null;unique" json:"email" binding:"required,email"`
 	Country   string    `gorm:"default:null;size:4" json:"country" binding:"required"`
 	IsActive  bool      `gorm:"default:true;not null" json:"active"`
@@ -32,6 +31,8 @@ type UserDomains struct {
 	IdModel
 	Owner				string `gorm:"default:null;size:36" json:"owner" binding:"required"`
 	Name				string `gorm:"default:null;" json:"name" binding:"-"`
+	Value				string `gorm:"default:null;" json:"value" binding:"-"`
+	Deleted				string `gorm:"default:false;" json:"deleted" binding:"-"`
 	UpdatedAndCreated
 
 	// Associacions

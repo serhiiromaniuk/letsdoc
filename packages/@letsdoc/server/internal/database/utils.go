@@ -20,12 +20,14 @@ var (
 			SlowThreshold: time.Second,
 			LogLevel:      logger.Info,
 			Colorful:      true})
-	DB, db_err = gorm.Open(mysql.New(mysql.Config{
+	DB, DB_err = gorm.Open(mysql.New(mysql.Config{
 		DSN:                       declareEnvironment(),
 		DontSupportRenameIndex:    true,
-		SkipInitializeWithVersion: false}), &gorm.Config{
+		SkipInitializeWithVersion: false,
+	}), &gorm.Config{
 		Logger:                 loggerConfig,
-		SkipDefaultTransaction: true})
+		SkipDefaultTransaction: true,
+	})
 )
 
 func Uuid() uuid.UUID {

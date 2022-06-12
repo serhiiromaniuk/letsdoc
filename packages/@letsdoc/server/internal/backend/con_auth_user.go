@@ -22,11 +22,6 @@ func listUsers(c *gin.Context) {
 	c.JSON(http.StatusOK, userInfos)
 }
 
-func listUserRoles(c *gin.Context) {
-	db.Find(&userRoles)
-	c.JSON(http.StatusOK, userRoles)
-}
-
 func createUser(c *gin.Context) {
 	var req database.UserInfos
 	if err := c.ShouldBindJSON(&req); err != nil {

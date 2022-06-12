@@ -9,6 +9,11 @@ import (
 	"golang.org/x/crypto/bcrypt"
 
 	"letsdoc/server/internal/database"
+
+	"strings"
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/route53"
 )
 
 const (
@@ -18,11 +23,12 @@ const (
 
 var (
 	db              = database.DB
+	db_err			= database.DB_err
 	userInfos       = []database.UserInfos{}
-	userRoles       = []database.UserRoles{}
-	orgOrgs         = []database.OrgOrganisations{}
-	blockContainers = []database.BlockContainers{}
+	docPages		= []database.DocPages{}
+	userDomains		= []database.UserDomains{}
 	c               = &gin.Context{}
+	svc 			= route53.New(session.Must(session.NewSession()))
 )
 
 func hashPassword(password string) (string, error) {
@@ -63,18 +69,6 @@ func parseJsonInfo(data []database.UserInfos) (v interface{}) {
 	return
 }
 
-func parseBlockContainer(data []database.BlockContainers) (v interface{}) {
-	for _, v = range data {
-	}
-	return
-}
-
-func parseOrgOrganisation(data []database.OrgOrganisations) (v interface{}) {
-	for _, v = range data {
-	}
-	return
-}
-
 func verifyBind(req interface{}) {
 	var c *gin.Context
 	if err := c.ShouldBindJSON(&req); err != nil {
@@ -86,4 +80,15 @@ func verifyBind(req interface{}) {
 type messageStatus struct {
 	Status  string
 	Message string
+}
+
+func getZone() string {
+	input := &route53.ListHostedZonesByNameInput{
+		MaxItems: aws.String("2000"),
+	}
+
+	resp, _ := svc.ListHostedZonesByName(input)
+	id := strings.Split(*resp.HostedZones[0].Id, "/")[2]
+
+	return id
 }

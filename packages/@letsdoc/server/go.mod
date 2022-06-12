@@ -3,6 +3,7 @@ module letsdoc/server
 go 1.15
 
 require (
+	github.com/aws/aws-sdk-go v1.44.32
 	github.com/davecgh/go-spew v1.1.1
 	github.com/gin-contrib/cors v1.3.1
 	github.com/gin-gonic/gin v1.8.1

@@ -5,8 +5,8 @@ import (
 )
 
 func InitDatabase() {
-	if db_err != nil {
-		log.Fatalf("Error connecting database.\n%s", db_err)
+	if DB_err != nil {
+		log.Fatalf("Error connecting database.\n%s", DB_err)
 	}
 
 	MigratreDb()
