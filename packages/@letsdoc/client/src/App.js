@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { 
-    MainPage, Login,
+    MainPage, Login, Register
 } from './Pages'
 
 export default function App() {
@@ -19,6 +19,7 @@ export default function App() {
                 // Auth Pages 
               }
               <Route exact path='/login' element={<Login/>}/>
+              <Route exact path='/register' element={<Register/>}/>
   
             </Routes>
           </Router>

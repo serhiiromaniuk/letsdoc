@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { LoginStyles } from "./styles";
+import { RegisterStyles } from "./styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -17,12 +17,11 @@ import VisibilityOffTwoToneIcon from "@material-ui/icons/VisibilityOffTwoTone";
 import CloseIcon from "@material-ui/icons/Close";
 import axios from 'axios';
 
-import { CustomParagraph } from '../../../Styles';
-import { api, opt, makeLogin } from '../../../Utils'
+import { api, opt, makeLogin } from '../../../../Components'
 import { NavLink } from "react-router-dom";
-import AppPannel from '../../../AppPannel';
+import { Header } from '../../../../Header'
 
-class Register extends Component {
+class RegisterItem extends Component {
   constructor(props) {
     super(props);
     
@@ -105,7 +104,7 @@ class Register extends Component {
             }
           ).catch(
             function(err) {
-              if (err.response.status == 400) {
+              if (err.response.status === 400) {
                 externalState.setState({
                   errorOpen: true,
                   error: "Some of field are not correct. `Username`: only alfanumeric, `Password`: min 6 symbols"
@@ -126,7 +125,7 @@ class Register extends Component {
     const { classes } = this.props;
     return (
       <>
-      <AppPannel/>
+      <Header/>
       <div className={classes.main}>
         <CssBaseline />
 
@@ -316,4 +315,4 @@ class Register extends Component {
   }
 }
 
-export default withStyles(LoginStyles)(Register);
+export const Register = withStyles(RegisterStyles)(RegisterItem)

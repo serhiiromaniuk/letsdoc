@@ -87,6 +87,7 @@ export const LoginStyles = theme => ({
     background: 'rgba(255, 255, 255,.45)',
     position: 'relative',
     fontWeight: 400,
+    fontFamily: 'Nunito',
     overflow: 'hidden',
     marginTop: theme.spacing(3),
     padding: `${theme.spacing(1.6)}px`,
@@ -138,12 +139,13 @@ export const LoginStyles = theme => ({
     fontFamily: 'Nunito',
     textAlign: 'center',
   },
+
   button: {
     color: textDark,
     background: 'rgba(255,255,255,.45)',
     position: 'relative',
     fontWeight: 400,
-    fontFamily: 'Raleway, sans-serif',
+    fontFamily: 'Nunito',
     overflow: 'hidden',
     marginTop: theme.spacing(3),
     padding: `${theme.spacing(1.6)}px`,
