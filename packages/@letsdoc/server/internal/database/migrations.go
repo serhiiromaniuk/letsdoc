@@ -11,10 +11,9 @@ import (
 func MigratreDb() {
 	Models := []interface{}{
 		&CommonCountries{},
-		&BlockContainers{},
-		&UserRoles{},
-		&OrgOrganisations{},
-		&UserInfos{} }
+		&UserInfos{},
+		&DocPages{},
+		&UserDomains{} }
 
 	log.Printf("=====> Starting migrations")
 	for _, model := range Models {
