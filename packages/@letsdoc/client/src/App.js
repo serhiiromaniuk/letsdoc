@@ -1,8 +1,10 @@
 import * as React from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { 
-    MainPage, Login, Register, Profile
+    MainPage, Login, Register,
+    Profile, Document
 } from './Pages'
+import { verifyAuth } from './Components/Func'
 
 export default function App() {
     return (
@@ -13,8 +15,8 @@ export default function App() {
                 // Main Pages 
               }
               <Route exact path='/' element={<MainPage/>}/>
-              <Route exact path='/profile' element={<Profile/>}/>
-                
+              <Route exact path='/profile' element={verifyAuth(Profile)}/>
+              <Route exact path='/document' element={verifyAuth(Document)}/>
 
               {
                 // Auth Pages 

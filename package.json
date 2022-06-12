@@ -17,10 +17,6 @@
     "start:db:migrate": "lerna run db:migrate:up --scope @letsdoc/database"
   },
   "dependencies": {
-    "@mui/icons-material": "^5.0.4",
-    "@testing-library/dom": ">=7.21.4",
-    "aws-sdk": "^2.1106.0",
-    "uuid": "^8.3.2",
     "lerna": "^4.0.0",
     "yarn": "^1.22.18"
   },

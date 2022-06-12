@@ -151,13 +151,17 @@ export function makeReditect(to) {
 }
 
 export function getUserData() {
-    const auth_token = JSON.parse(localStorage.getItem('auth_token'))
+    const auth_token = localStorage.getItem('auth_token')
+    const now = new Date()
+    const token = JSON.parse(auth_token)
 
-    if (!auth_token) {
-        makeReditect('/login')
-        return false
-    } else {
-        return auth_token
+    if (!!auth_token) {
+        if (now.getTime() > token.expire) {
+            localStorage.removeItem('auth_token')
+            return false
+        } else {
+            return auth_token
+        }
     }
 }
 
