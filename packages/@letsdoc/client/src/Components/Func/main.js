@@ -2,8 +2,10 @@ import axios from 'axios'
 import React from 'react'
 import { Navigate } from 'react-router-dom'
 import CryptoJS from 'crypto-js'
+
 export const ENVIRONMENT = 'development'
 export const api_url = process.env.BACKEND_URL || 'http://localhost:8000/api/v1/'
+export const domain  = process.env.DOMAIN || 'letsdoc.serhiiromaniuk.com'
 
 export const opt = {
     headers: {
@@ -31,15 +33,16 @@ export const api = {
         },
         doc: {
             page: {
-                get: api_url + '/doc/page/get',
-                create: api_url + '/doc/page/create'
+                get: api_url + 'doc/page/get',
+                create: api_url + 'doc/page/create',
+                update: api_url + 'doc/page/update'
             }
         },
         user: {
             domains: {
-                get: api_url + '/user/domains/get',
-                upsert: api_url + '/user/domains/upsert',
-                delete: api_url + '/user/domains/delete',
+                get: api_url + 'user/domains/get',
+                upsert: api_url + 'user/domains/upsert',
+                delete: api_url + 'user/domains/delete',
             }
         }
     }
@@ -135,7 +138,8 @@ export function makeLogin(tkn, ttl) {
     window.location = '/'
 }
 
-export function makeLogout() {
+export function makeLogout(e) {
+    e.preventDefault()
     localStorage.removeItem('auth_token')
     window.location.href = '/login'
 }
@@ -160,7 +164,7 @@ export function getUserData() {
             localStorage.removeItem('auth_token')
             return false
         } else {
-            return auth_token
+            return token
         }
     }
 }

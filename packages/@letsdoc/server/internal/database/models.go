@@ -19,8 +19,8 @@ type UserInfos struct {
 
 type DocPages struct {
 	IdModel
-	Owner				string `gorm:"default:null;size:36" json:"owner" binding:"required"`
-	Content				string `gorm:"default:null;" json:"content" binding:"-"`
+	Owner				string `gorm:"default:null;size:36;unique" json:"owner" binding:"required"`
+	Content				string `gorm:"default:null;type:text;" json:"content" binding:"-"`
 	UpdatedAndCreated
 
 	// Associacions
@@ -29,7 +29,7 @@ type DocPages struct {
 
 type UserDomains struct {
 	IdModel
-	Owner				string `gorm:"default:null;size:36" json:"owner" binding:"required"`
+	Owner				string `gorm:"default:null;size:36;unique" json:"owner" binding:"required"`
 	Name				string `gorm:"default:null;" json:"name" binding:"-"`
 	Value				string `gorm:"default:null;" json:"value" binding:"-"`
 	Deleted				string `gorm:"default:false;" json:"deleted" binding:"-"`

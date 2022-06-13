@@ -29,7 +29,7 @@
 }
 
 .editor {
-  top: 92px;
+  top: 100px;
   width: auto;
   margin-left: 88px;
   margin-right: 88px;
@@ -63,4 +63,14 @@
   to {
     transform: rotate(360deg);
   }
+}
+pre {
+  font-size: 18px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: #f8f8f8;
+  border: 1px solid #dfdfdf;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  padding: 0.125rem 0.3125rem 0.0625rem;
 }

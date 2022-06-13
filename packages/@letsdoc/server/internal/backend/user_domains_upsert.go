@@ -56,7 +56,13 @@ func userDomainsUpsert(c *gin.Context) {
 	db.Transaction(func(tx *gorm.DB) error {
 		if err := tx.Create(&arg).Error; err != nil {
 			if err.(*mysql.MySQLError).Number == 1062 {
-				c.JSON(http.StatusForbidden, gin.H{"error": "already registered"})
+				if err := tx.Model(&database.UserDomains{}).Where("owner", req.Owner).Updates(arg).Error; err != nil {
+					c.JSON(http.StatusForbidden, gin.H{"error": "has already registered"})
+					return err
+				} else {
+					c.JSON(http.StatusOK, userDomainsUpsertResponse(arg))
+					return nil
+				}
 			}
 			return err
 		} else {

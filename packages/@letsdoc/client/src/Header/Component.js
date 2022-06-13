@@ -39,7 +39,7 @@ export function Header(props) {
                     <Toolbar style={styling}>
                         <LogoHeader/>
                         <Buttons/>
-                        <AuthButtons/>
+                        <AuthButtons run={props.auth}/>
                     </Toolbar>
                 </AppBar>
             </ElevationScroll>
