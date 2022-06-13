@@ -6,7 +6,7 @@ import "prismjs/components/prism-markdown"
 import "prismjs/themes/prism.css"
 import showdown from 'showdown'
 import { Header } from '../../../Header'
-import { encode, decode } from 'js-base64'
+import { encode } from 'js-base64'
 import { api, opt, getUserData, domain } from '../../../Components/Func'
 import axios from 'axios'
 
