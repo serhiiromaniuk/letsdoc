@@ -1,4 +1,4 @@
-name: Deploy Asset Service
+name: Deploy Application
 
 on:
   push:
