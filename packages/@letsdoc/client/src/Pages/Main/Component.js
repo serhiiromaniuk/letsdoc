@@ -55,7 +55,7 @@ export function MainPage() {
         <div>
             <Header/>
             {
-                current !== domain ? (
+                current !== domain && current !== 'localhost' ? (
                     <>
                         <div style={{
                             fontFamily: '"Fira code", "Fira Mono", monospace',
