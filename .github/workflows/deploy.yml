@@ -1,0 +1,16 @@
+name: Deploy Asset Service
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  Build_And_Deploy:
+    runs-on: stockholm
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+        pwd
+        ls -la
+        whoami
