@@ -1,0 +1,36 @@
+name: Deploy Frontend Application
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'packages/@letsdoc/client/**'
+      - 'package*'
+      - yarn.lock
+      - lerna.json
+      - .github
+
+env:
+  BUILD_PATH: packages/@letsdoc/client/dist/
+  STATIC_PATH: /var/www/html/
+
+jobs:
+  Build_And_Deploy:
+    runs-on: stockholm
+    steps:
+      - uses: actions/checkout@v2
+      - name: Verify components
+        run: |
+          aws --version
+          node --version
+
+      - name: Bootstrap Packages
+        run: npm run bootstrap
+
+      - name: Build Frontend
+        run: npm run build:frontend
+
+      - name: Move build files to nginx
+        run: sudo mv $BUILD_PATH $STATIC_PATH
+ 
