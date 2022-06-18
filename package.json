@@ -11,6 +11,7 @@
     "clean": "find . -regex 'node_modules|dist' -type d -prune -exec rm -rf '{}' +",
     "bootstrap": "npm run help && npm run clean && npm i && lerna bootstrap",
     "build": "lerna run build && lerna link",
+    "build:frontend": "lerna run build --scope @letsdoc/client",
     "start:client": "lerna run start --scope @letsdoc/client",
     "start:server": "lerna run start --scope @letsdoc/server",
     "start:db": "lerna run db:up --scope @letsdoc/database",
