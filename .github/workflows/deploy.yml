@@ -11,4 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Verify node and install version
-        run: node --version
+        run: |
+          source ~/.bashrc
+          nvm --version
+          node --version
