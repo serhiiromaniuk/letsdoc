@@ -10,7 +10,5 @@ jobs:
     runs-on: stockholm
     steps:
       - uses: actions/checkout@v2
-      - run: |
-          pwd
-          ls -la
-          whoami
+      - name: Verify node and install version
+        run: nvm install
