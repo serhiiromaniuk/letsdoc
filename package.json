@@ -10,11 +10,12 @@
     "help": "echo \"=> Install NVM for avoid version inconsitencies, current version $(node --version)\"",
     "clean": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
     "bootstrap": "npm run help && npm run clean && npm i && lerna bootstrap",
+    "bootstrap:backend": "lerna run bootstrap --scope @letsdoc/server",
     "build": "lerna run build && lerna link",
     "build:frontend": "lerna run build --scope @letsdoc/client",
     "start:client": "lerna run start --scope @letsdoc/client",
     "start:server": "lerna run start --scope @letsdoc/server",
-    "start:db": "lerna run db:up --scope @letsdoc/database",
+    "start:db": "lerna run db:up --scope @letsdoc/server",
     "start:db:migrate": "lerna run db:migrate:up --scope @letsdoc/database"
   },
   "dependencies": {

@@ -1,0 +1,36 @@
+name: Deploy Backend Application
+
+on:
+  push:
+    branches:
+      - master
+    # paths:
+    #   - 'packages/@letsdoc/server/**'
+    #   - .github
+
+env:
+  SERVER_PATH: packages/@letsdoc/server
+
+jobs:
+  Build_And_Deploy:
+    runs-on: stockholm
+    steps:
+      - uses: actions/checkout@v2
+      - name: Verify components
+        run: |
+          go version
+          npm --version
+
+      - name: Bootstrap Packages
+        run: npm run bootstrap:backend
+
+      - name: Check database
+        run: npm run start:db
+
+      - name: Deploy systemd service
+        run: |
+          cp $SERVER_PATH/backend.service /etc/systemd/system/
+          sudo systemctl daemon-reload
+          sudo systemctl restart backend
+          sudo systemctl enable backend
+          sudo systemctl status backend

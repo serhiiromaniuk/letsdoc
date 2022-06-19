@@ -7,7 +7,7 @@
       "build": "go build",
       "bootstrap": "go install && cp template.env .env",
       "db:down": "docker-compose --env-file .env down -v",
-      "db:up": "docker-compose --env-file .env up -d mysql"
+      "db:up": "docker-compose --env-file .env up -d"
     }
 }
   
