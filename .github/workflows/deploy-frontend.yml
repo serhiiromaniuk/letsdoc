@@ -2,14 +2,12 @@ name: Deploy Frontend Application
 
 on:
   push:
-    branches:
-      - master
-    # paths:
-    #   - 'packages/@letsdoc/client/**'
-    #   - 'package*'
-    #   - yarn.lock
-    #   - lerna.json
-    #   - .github
+    paths:
+      - 'packages/@letsdoc/client/**'
+      - 'package*'
+      - yarn.lock
+      - lerna.json
+      - .github
 
 env:
   BUILD_PATH: packages/@letsdoc/client/dist/
@@ -39,4 +37,6 @@ jobs:
         run: |
           rm -rf $STATIC_PATH**
           sudo cp -R $BUILD_PATH** $STATIC_PATH
- 
+
+      - name: Restart nginx
+        run: sudo systemctl restart nginx
