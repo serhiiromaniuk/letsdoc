@@ -16,8 +16,13 @@ jobs:
     runs-on: stockholm
     steps:
       - uses: actions/checkout@v2
-      - name: Update config files and restart nginx
+      - name: Update config files
         run: |
           sudo cp $CONF_PATH/nginx.conf $NGINX_PATH/
           sudo cp -R $CONF_PATH/conf.d/** $NGINX_PATH/conf.d/
-          sudo systemctl restart nginx
+
+      - name: Verify nginx conf
+        run: sudo nginx -t
+      
+      - name: Restart nginx
+        run: sudo systemctl restart nginx
