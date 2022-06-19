@@ -2,12 +2,14 @@ name: Deploy Frontend Application
 
 on:
   push:
-    paths:
-      - 'packages/@letsdoc/client/**'
-      - 'package*'
-      - yarn.lock
-      - lerna.json
-      - .github
+    branches:
+      - master
+    # paths:
+    #   - 'packages/@letsdoc/client/**'
+    #   - 'package*'
+    #   - yarn.lock
+    #   - lerna.json
+    #   - .github
 
 env:
   BUILD_PATH: packages/@letsdoc/client/dist/
