@@ -12,6 +12,7 @@ on:
     #   - .github
 
 env:
+  CLIENT_PATH: packages/@letsdoc/client 
   BUILD_PATH: packages/@letsdoc/client/dist
   STATIC_PATH: /var/www/html
   BACKEND_URL: https://api.letsdoc.serhiiromaniuk.com/api/v1/
@@ -36,7 +37,7 @@ jobs:
       - name: Move build files to nginx
         run: |
           sudo rm -rf $STATIC_PATH/**
-          sudo cp -R public/.well-known $BUILD_PATH/
+          sudo cp -R $CLIENT_PATH/public/.well-known $BUILD_PATH/
           sudo cp -R $BUILD_PATH/** $STATIC_PATH/
 
       - name: Restart nginx

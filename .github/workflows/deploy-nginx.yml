@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - master
-    # paths:
-    #   - 'nginx/**'
+    paths:
+      - 'nginx/**'
 
 env:
   CONF_PATH: nginx
