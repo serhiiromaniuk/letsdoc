@@ -4,12 +4,12 @@ on:
   push:
     branches:
       - master
-    # paths:
-    #   - 'packages/@letsdoc/client/**'
-    #   - 'package*'
-    #   - yarn.lock
-    #   - lerna.json
-    #   - .github
+    paths:
+      - 'packages/@letsdoc/client/**'
+      - 'package*'
+      - yarn.lock
+      - lerna.json
+      - .github
 
 env:
   CLIENT_PATH: packages/@letsdoc/client 

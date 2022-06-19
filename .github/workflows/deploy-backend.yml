@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - master
-    # paths:
-    #   - 'packages/@letsdoc/server/**'
-    #   - .github
+    paths:
+      - 'packages/@letsdoc/server/**'
+      - .github
 
 env:
   SERVER_PATH: packages/@letsdoc/server
@@ -22,7 +22,9 @@ jobs:
           npm --version
 
       - name: Bootstrap Packages
-        run: npm run bootstrap:backend
+        run: |
+          npm i
+          npm run bootstrap:backend
 
       - name: Check database
         run: npm run start:db
