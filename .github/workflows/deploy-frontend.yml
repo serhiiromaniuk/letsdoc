@@ -22,7 +22,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Verify components
         run: |
-          aws --version
           node --version
           npm --version
 
