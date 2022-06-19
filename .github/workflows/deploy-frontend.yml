@@ -14,6 +14,8 @@ on:
 env:
   BUILD_PATH: packages/@letsdoc/client/dist/
   STATIC_PATH: /var/www/html/
+  BACKEND_URL: https://api.letsdoc.serhiiromaniuk.com/api/v1/
+  DOMAIN: letsdoc.serhiiromaniuk.com
 
 jobs:
   Build_And_Deploy:
@@ -34,5 +36,7 @@ jobs:
         run: npm run build:frontend
 
       - name: Move build files to nginx
-        run: sudo mv $BUILD_PATH $STATIC_PATH
+        run: |
+          rm -rf $BUILD_PATH**
+          sudo cp -R $BUILD_PATH** $STATIC_PATH
  
