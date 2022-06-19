@@ -15,6 +15,7 @@ jobs:
   Build_And_Deploy:
     runs-on: stockholm
     steps:
+      - uses: actions/checkout@v2
       - name: Update config files and restart nginx
         run: |
           cp $CONF_PATH/nginx.conf $NGINX_PATH/
