@@ -17,7 +17,7 @@ env:
 
 jobs:
   Build_And_Deploy:
-    runs-on: stockholm-2
+    runs-on: stockholm
     steps:
       - uses: actions/checkout@v2
       - name: Verify components
