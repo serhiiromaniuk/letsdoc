@@ -37,6 +37,6 @@ jobs:
 
       - name: Move build files to nginx
         run: |
-          rm -rf $BUILD_PATH**
+          rm -rf $STATIC_PATH**
           sudo cp -R $BUILD_PATH** $STATIC_PATH
  
