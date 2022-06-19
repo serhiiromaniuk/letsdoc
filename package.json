@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "help": "echo \"=> Install NVM for avoid version inconsitencies, current version $(node --version)\"",
-    "clean": "find . -regex 'node_modules|dist' -type d -prune -exec rm -rf '{}' +",
+    "clean": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
     "bootstrap": "npm run help && npm run clean && npm i && lerna bootstrap",
     "build": "lerna run build && lerna link",
     "build:frontend": "lerna run build --scope @letsdoc/client",

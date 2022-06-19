@@ -17,16 +17,19 @@ env:
 
 jobs:
   Build_And_Deploy:
-    runs-on: stockholm
+    runs-on: stockholm-2
     steps:
       - uses: actions/checkout@v2
       - name: Verify components
         run: |
           aws --version
           node --version
+          npm --version
 
       - name: Bootstrap Packages
-        run: npm run bootstrap
+        run: |
+          npm i
+          npx lerna bootstrap
 
       - name: Build Frontend
         run: npm run build:frontend
