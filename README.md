@@ -1,5 +1,6 @@
 # letsdoc
-Let's Doc
+Let'sDoc document creation.
+Create, update and share your own documents on Markdown syntax!
 
 [![Deploy Frontend Application](https://github.com/serhiiromaniuk/letsdoc/actions/workflows/deploy-frontend.yml/badge.svg)](https://github.com/serhiiromaniuk/letsdoc/actions/workflows/deploy-frontend.yml)
 
