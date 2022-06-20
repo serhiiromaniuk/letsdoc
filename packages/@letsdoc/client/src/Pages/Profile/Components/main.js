@@ -66,7 +66,7 @@ export const StyledProfile = () => {
                                             fontSize: '24px',
                                             marginTop: '130px'
                                         }}>
-                                            UUID: {data.uuid}
+                                            Reserved Domain: <a href={`https://${data.uuid}.letsdoc.serhiiromaniuk.com`}>https://{data.uuid}.letsdoc.serhiiromaniuk.com</a>
                                             <br></br>
                                             Session: {parseFloat(item).toFixed(2)} minutes left
                                         </p>
