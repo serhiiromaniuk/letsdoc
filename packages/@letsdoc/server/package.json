@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "private": true,
     "scripts": {
-      "start": "npm run db:down && npm run db:up && sleep 10 && go run main.go",
+      "start": "npm run db:up && sleep 10 && go run main.go",
       "build": "go build",
       "bootstrap": "go install && cp template.env .env",
       "db:down": "docker-compose --env-file .env down -v",
