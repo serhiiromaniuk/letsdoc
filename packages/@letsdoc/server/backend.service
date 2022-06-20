@@ -1,6 +1,7 @@
 [Unit]  
 Description=Letsdoc backend service 
-After=network.target
+Wants = network-online.target
+After = network.target network-online.target
 
 [Service]      
 ExecStart=/usr/local/go/bin/go run main.go   
