@@ -6,7 +6,7 @@ export const BootstrapStack = styled(Stack)({
     position: 'absolute',
     width: '459px',
     height: '44px',
-    right: '11%',
+    right: '20%',
     top: '23px'
 })
 

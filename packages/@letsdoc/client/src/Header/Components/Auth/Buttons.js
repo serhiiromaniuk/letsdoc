@@ -66,6 +66,18 @@ function LogInButton() {
     )
 }
 
+function HomeButton() {
+    return (
+        <div>   
+            <NavLink to='/' style={{textDecoration: 'none'}}>
+                <BootstrapLogIn variant='text'>
+                HOME
+                </BootstrapLogIn>
+            </NavLink>
+        </div>
+    )
+}
+
 function CustomButton(props) {
     return (
         <div>
@@ -84,6 +96,7 @@ function CustomButton(props) {
 export function AuthButtons(props) {
     return (
             <BootstrapStack direction='row' spacing={2}>
+                <HomeButton/>
                 <CustomButton run={props.run}/>
                 <SignUpButton/>
                 <LogInButton/>
