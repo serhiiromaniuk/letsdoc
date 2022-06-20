@@ -261,7 +261,7 @@ class RegisterItem extends Component {
               Register
             </Button>
 
-            <NavLink to='/login'>
+            <NavLink to='/login' style={{textDecoration: 'none'}}>
               <Button
                 disableRipple
                 fullWidth
