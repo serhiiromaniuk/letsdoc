@@ -47,7 +47,7 @@ export const StyledProfile = () => {
     React.useEffect(() => { getData() },[]);
     
     return (
-        <div className="page-content page-container" id="page-content">
+        <div className="page-content page-container" id="page-content" style={{marginTop: '120px'}} >
         <div className="padding">
             <div className="row container d-flex justify-content-center">
                 <div className="col-xl-6 col-md-12">
@@ -61,8 +61,11 @@ export const StyledProfile = () => {
                                             className="img-radius" alt="User-Profile-Image"  
                                         >
                                         </img>     
-                                        <h1 className="f-w-600 name">{data.username}</h1>
-                                        <p>
+                                        <h1 className="f-w-600 name" >{data.username}</h1>
+                                        <p style={{
+                                            fontSize: '24px',
+                                            marginTop: '130px'
+                                        }}>
                                             UUID: {data.uuid}
                                             <br></br>
                                             Session: {parseFloat(item).toFixed(2)} minutes left
@@ -76,21 +79,29 @@ export const StyledProfile = () => {
                                     <h3 className="m-b-20 p-b-5 b-b-default f-w-600">Information</h3>
                                     <div className="row">
                                         <div className="col-sm-6">
-                                            <p className="m-b-10 f-w-600">Email</p>
-                                            <h6 className="text-muted f-w-400">{data.email}</h6>
+                                            <p className="m-b-10 f-w-600" 
+                                                style={{
+                                                    fontSize: '24px'
+                                                }}
+                                            >Email</p>
+                                            <h6 className="text-muted f-w-400"
+                                                style={{
+                                                    fontSize: '20px'
+                                                }}
+                                            >{'>'} {data.email}</h6>
                                         </div>
                                         <div className="col-sm-6">
-                                            <p className="m-b-10 f-w-600">Country</p>
-                                            <h6 className="text-muted f-w-400">{data.country}</h6>
+                                            <p className="m-b-10 f-w-600"
+                                                style={{
+                                                    fontSize: '24px'
+                                                }}
+                                            >Country</p>
+                                            <h6 className="text-muted f-w-400"
+                                                style={{
+                                                    fontSize: '20px'
+                                                }}
+                                            >{'>'} {data.country}</h6>
                                         </div>
-                                        <div className="col-sm-6">
-                                            <p className="m-b-10 f-w-600">Organisation Id</p>
-                                            <h6 className="text-muted f-w-400">{data.org_id}</h6>
-                                        </div>
-                                        {/* <div className="col-sm-6">
-                                            <p className="m-b-10 f-w-600">Role Id</p>
-                                            <h6 className="text-muted f-w-400">{data.role_id} - {rolesList[data.role_id]}</h6>
-                                        </div> */}
                                     </div>
                                 </div>
                             </div>
