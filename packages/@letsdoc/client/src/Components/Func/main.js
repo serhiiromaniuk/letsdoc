@@ -141,7 +141,7 @@ export function makeLogin(tkn, ttl) {
 export function makeLogout(e) {
     e.preventDefault()
     localStorage.removeItem('auth_token')
-    window.location.href = '/login'
+    window.location.href = '/'
 }
 
 export function makeReditect(to) {
