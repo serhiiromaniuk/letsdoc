@@ -6,11 +6,11 @@ import "prismjs/components/prism-markdown"
 import "prismjs/themes/prism.css"
 import showdown from 'showdown'
 import { Header } from '../../../Header'
-import { encode } from 'js-base64'
+import { encode, decode } from 'js-base64'
 import { api, opt, getUserData, domain } from '../../../Components/Func'
 import axios from 'axios'
 
-const sampleCode = `Showdown Tutorial
+const sampleCodeDefault = `Showdown Tutorial
 =================
 
 This is a showdown tutorial. 
@@ -35,6 +35,27 @@ Don't forget to check the [extensions wiki][1].
 [1]: https://github.com/showdownjs/showdown/wiki/extensions
 
 `
+
+const BootstrapPreview = {
+  fontFamily: 'Nunito',
+  fontStyle: 'normal',
+  fontWeight: 900,
+  fontSize: '30px',
+  lineHeight: '60px',
+  borderRadius: '5px',
+  boxShadow: 'none',
+  backgroundColor: '#FF8282',
+  // width: '100%',
+  margin: 'auto',
+  width: '90.5%',
+  textAlign: 'center',
+  color: '#FFFFFF',
+  '&:hover': {
+      backgroundColor: '#2C2C2C',
+      borderColor: '#FFFFFF'
+  }
+}
+
 function publish(e, code) {
   e.preventDefault()
 
@@ -93,8 +114,27 @@ function publish(e, code) {
 }
 
 export function Component() {
-  const [codeValue, setCodeValue] = React.useState(sampleCode) // code
-  
+  const [codeValue, setCodeValue] = React.useState('')
+
+  const urlGet   = api.post.doc.page.get
+  const uuid     = getUserData().token
+  const dataDoc  = {
+    owner: uuid
+  }
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.post(urlGet, dataDoc, opt)
+        setCodeValue(decode(res.data.content))
+      } catch (error) {
+        console.log(error.response.status)
+        setCodeValue(sampleCodeDefault)
+      }
+    }
+    fetchData()
+  }, [])
+
   const hightlightWithLineNumbers = (input, grammar, language) => {
     return highlight(input, grammar, language)
       .split("\n")
@@ -138,11 +178,12 @@ export function Component() {
           outline: 0
         }}
       />
-      <p>Preview</p>
+      <p style={BootstrapPreview}>Preview</p>
       <div style={{
           fontFamily: '"Fira code", "Fira Mono", monospace',
           fontSize: 24,
           outline: 1,
+          marginTop: '80px'
         }} className="editor" dangerouslySetInnerHTML={{__html: html}}/>
     </>
   )
