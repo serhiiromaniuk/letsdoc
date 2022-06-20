@@ -3,7 +3,7 @@ Description=Letsdoc backend service
 After=network.target
 
 [Service]      
-ExecStart=/usr/local/go run main.go   
+ExecStart=/usr/local/go/bin/go run main.go   
 WorkingDirectory=/home/ubuntu/actions-runner/_work/letsdoc/letsdoc/packages/@letsdoc/server
 
 User=ubuntu
