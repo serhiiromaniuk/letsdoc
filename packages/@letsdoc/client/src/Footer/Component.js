@@ -18,8 +18,13 @@ const styling = {
 export function Footer(props) {
     return (
         <div>
-            <footer style={styling}>
-                <p>Some footer nonsense!</p>
+            <footer style={{...styling, color: 'blue'}}>
+                <p style={{
+                    ...styling,
+                }}>Some footer nonsense!
+                    <br/>
+                    <br/>
+                </p>
             </footer>
         </div>
     )
