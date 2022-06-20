@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom'
 import CryptoJS from 'crypto-js'
 
 export const ENVIRONMENT = 'development'
-export const api_url = process.env.BACKEND_URL || 'http://localhost:8000/api/v1/'
+export const api_url = 'https://api.letsdoc.serhiiromaniuk.com/api/v1/'
 export const domain  = 'letsdoc.serhiiromaniuk.com'
 
 export const opt = {
